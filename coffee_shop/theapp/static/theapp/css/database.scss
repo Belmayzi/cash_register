@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@mixin flex($direction,$justify) {
+    display: flex;
+    justify-content: $justify;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+@mixin main_button {
+    background-color: rgb(86, 179, 207);
+    border: none;
+    border-radius: 5px;
+    height: 50px;
+    width: 130px;
+    font-weight: bold;
+    border: black solid 1px;
+    border-radius: 5px;
+    &:hover{
+        background-color: rgb(44, 118, 141);
+    }
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans' , 'sans-serif';
+    height: 100vh
+}
+h2{
+    text-align: center
+}
+
+#page_container{
+    @include flex(row,space-around);
+    align-items: flex-start;
+    #add_products{
+        #product_inputs{
+            @include flex(column,center);
+            padding: 10px;
+            border: black solid 1px;
+            padding-bottom: 20px;
+            padding-top: 20px;
+            border-radius: 5px;
+            input{
+                height: 40px;
+                width: 250px;
+                margin: 10px;
+            }
+            button{
+                @include main_button();
+                
+            }
+        }    
+    }
+    #products_view{
+       @include flex(column,center);
+       box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+       margin-right: 40px;
+        #products_table{
+            border-radius: 5px;
+            font-size: 14px;
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 100%;
+            white-space: nowrap;
+            background-color: white;
+            display:block;
+            max-height: 88%;
+            overflow-y:auto;
+
+            img{
+                height: 10px;
+                width: 10px;
+            }
+            th{
+                text-align: center;
+                padding: 8px;
+                color: #ffffff;
+                background: #4FC3A1;
+            }
+            tr:nth-child(even) {
+                background: #F8F8F8;
+            }
+            td{
+                text-align: center;
+                padding: 8px;
+                border-right: 1px solid #f8f8f8;
+                font-size: 12px;
+                &:hover{
+                    background-color: rgb(160, 150, 150);
+                }
+            }
+        }
+        
+        #changes{
+            @include main_button();
+            height: 40px;
+            margin-top: 20px;
+            display: none;
+        }
+    }
+}
+
+

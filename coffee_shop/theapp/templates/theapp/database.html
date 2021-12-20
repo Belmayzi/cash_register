@@ -1,0 +1,83 @@
+{% extends 'theapp/base.html' %} {% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'theapp/css/database.css' %}" />
+    {% endblock %}
+    <title>Document</title>
+  </head>
+  <body>
+    {% block content %}
+    <h2>Database manager</h2>
+    <div id="page_container">
+      <div id="add_products">
+        <form
+          action=""
+          method="POST"
+          id="input_products"
+          enctype="multipart/form-data"
+        >
+          {% csrf_token %}
+          <div id="product_inputs">
+            <input
+              type="text"
+              id="product_name"
+              placeholder="Product name"
+              name="name"
+              required
+            />
+            <input
+              type="number"
+              id="product_price"
+              placeholder="product_price"
+              name="price"
+              required
+            />
+            <input
+              type="file"
+              id="product_image"
+              accept="image/png, image/jpeg"
+              name="image"
+            />
+            <button type="submit" id="add_to_database">Add to database</button>
+          </div>
+        </form>
+      </div>
+      <div id="products_view">
+        <table id="products_table">
+          <tr id="head">
+            <th>Product ID</th>
+            <th>Product name</th>
+            <th>Product price</th>
+          </tr>
+
+          {% for item in items %}
+          <tr id="row_{{item.id}}" class="product_rows">
+            <td id="row_item_id">{{item.id}} <br />{{item.selected}}</td>
+            <td id="row_item_name">{{item.name}}</td>
+            <td id="row_item_price">{{item.price}}</td>
+            <td id="delete_{{item.id}}" class="{{item.id}}">
+              <img src="{% static 'theapp/images/delete.svg' %}" alt="delete" />
+            </td>
+            <td id="edit_{{item.id}}" class="{{item.id}}">
+              <img src="{% static 'theapp/images/edit.svg' %}" alt="edit" />
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+        <button id="changes" type="submit" name="changes" value="changes">
+          submit changes
+        </button>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="{% static 'theapp/jsfiles/cookii/jquery.cookie.js' %}"></script>
+    <script src="{% static 'theapp/jsfiles/database.js' %}"></script>
+    {% endblock %}
+  </body>
+</html>

@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans' , 'sans-serif';
+  height: 100vh;
+}
+
+h2 {
+  text-align: center;
+}
+
+#page_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+#page_container #add_products #product_inputs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 10px;
+  border: black solid 1px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  border-radius: 5px;
+}
+
+#page_container #add_products #product_inputs input {
+  height: 40px;
+  width: 250px;
+  margin: 10px;
+}
+
+#page_container #add_products #product_inputs button {
+  background-color: #56b3cf;
+  border: none;
+  border-radius: 5px;
+  height: 50px;
+  width: 130px;
+  font-weight: bold;
+  border: black solid 1px;
+  border-radius: 5px;
+}
+
+#page_container #add_products #product_inputs button:hover {
+  background-color: #2c768d;
+}
+
+#page_container #products_view {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
+  margin-right: 40px;
+}
+
+#page_container #products_view #products_table {
+  border-radius: 5px;
+  font-size: 14px;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 100%;
+  white-space: nowrap;
+  background-color: white;
+  display: block;
+  max-height: 88%;
+  overflow-y: auto;
+}
+
+#page_container #products_view #products_table img {
+  height: 10px;
+  width: 10px;
+}
+
+#page_container #products_view #products_table th {
+  text-align: center;
+  padding: 8px;
+  color: #ffffff;
+  background: #4FC3A1;
+}
+
+#page_container #products_view #products_table tr:nth-child(even) {
+  background: #F8F8F8;
+}
+
+#page_container #products_view #products_table td {
+  text-align: center;
+  padding: 8px;
+  border-right: 1px solid #f8f8f8;
+  font-size: 12px;
+}
+
+#page_container #products_view #products_table td:hover {
+  background-color: #a09696;
+}
+
+#page_container #products_view #changes {
+  background-color: #56b3cf;
+  border: none;
+  border-radius: 5px;
+  height: 50px;
+  width: 130px;
+  font-weight: bold;
+  border: black solid 1px;
+  border-radius: 5px;
+  height: 40px;
+  margin-top: 20px;
+  display: none;
+}
+
+#page_container #products_view #changes:hover {
+  background-color: #2c768d;
+}
+/*# sourceMappingURL=database.css.map */

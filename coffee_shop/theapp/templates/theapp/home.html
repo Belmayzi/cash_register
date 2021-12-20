@@ -1,0 +1,92 @@
+{% extends 'theapp/base.html' %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'theapp/css/home.css' %}" />
+    {% endblock %}
+    <title>Document</title>
+  </head>
+  <body>
+    {% csrf_token %} {% block content %}
+    <div id="content_container">
+      <div id="transaction_container">
+        <div id="transaction_head">
+          <span>Lorem, ipsum dolor.</span>
+        </div>
+        <div id="transaction_body">
+          <div id="transaction_items" style="list-style-type: none">
+            <span>Lorem, ipsum.</span>
+          </div>
+        </div>
+        <div id="transaction_footer">
+          <span>Total:</span><br />
+          <span>Items:</span>
+        </div>
+      </div>
+
+      <div id="display">
+        <span>Selected products name</span>
+        <span>Selected product price</span>
+      </div>
+      <div id="product_grid">
+        <img
+          id="edit_icon"
+          src="{% static 'theapp/images/edit.svg' %}"
+          alt="edit"
+        />
+      </div>
+      <div id="navigation">
+        <a id="database" href="/database">database</a>
+      </div>
+      <div id="add_to_grid">
+        <h3>Select products to display</h3>
+        <div id="products_view">
+          <table id="products_table">
+            <tr id="head">
+              <th>Product ID</th>
+              <th>Product name</th>
+              <th>Product price</th>
+            </tr>
+
+            {% for item in items %}
+            <tr id="row_{{item.id}}" class="product_rows">
+              <td id="row_item_id">{{item.id}}</td>
+              <td id="row_item_name">{{item.name}}</td>
+              <td id="row_item_price">{{item.price}}</td>
+              <td>
+                <input
+                  id="check_{{item.id}}"
+                  type="checkbox"
+                  class="checkbox"
+                  name="select"
+                  value="select"
+                />
+              </td>
+            </tr>
+            {% endfor %}
+          </table>
+          <button id="changes" type="submit">Add to menu</button>
+        </div>
+      </div>
+
+      <div id="calculator">
+        <button>OTHER TENDER</button>
+        <button>10DH</button>
+        <button>20DH</button>
+        <button>50DH</button>
+        <button>100DH</button>
+        <button>200DH</button>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="{% static 'theapp/jsfiles/cookii/jquery.cookie.js' %}"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js"></script>
+    <script src="{% static 'theapp/jsfiles/add_to_grid.js' %}"></script>
+    {% endblock %}
+  </body>
+</html>
